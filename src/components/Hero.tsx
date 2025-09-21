@@ -1,14 +1,22 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Hero() {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const phrases = ['Data Analyst | 3+ Years Experience', 'AWS Cloud & AI Developer', 'MSc Computer Science @ UEL', 'Ready for Immediate Opportunities'];
+    const phrases = [
+      'AI/ML Engineer | Cloud & AI Developer',
+      'AWS Solutions Architect',
+      'MSc Computer Science @ UEL',
+      'Data Analysis & Automation Expert'
+    ];
+
     const timeout = setTimeout(() => {
       const currentPhrase = phrases[currentIndex];
 
@@ -16,7 +24,7 @@ export default function Hero() {
         setText(currentPhrase.substring(0, text.length + 1));
 
         if (text === currentPhrase) {
-          setTimeout(() => setIsDeleting(true), 2000);
+          setTimeout(() => setIsDeleting(true), 2500);
         }
       } else {
         setText(currentPhrase.substring(0, text.length - 1));
@@ -26,115 +34,203 @@ export default function Hero() {
           setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length);
         }
       }
-    }, isDeleting ? 50 : 80);
+    }, isDeleting ? 50 : 100);
 
     return () => clearTimeout(timeout);
   }, [text, isDeleting, currentIndex]);
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
-      {/* Professional Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-2000"></div>
+    <section className="min-h-screen relative overflow-hidden grid-pattern">
+      {/* Advanced Background Elements */}
+      <div className="absolute inset-0">
+        {/* Animated Gradient Orbs */}
+        <div
+          className="absolute w-96 h-96 rounded-full premium-gradient opacity-20 blur-3xl animate-float"
+          style={{
+            left: `${20 + mousePosition.x * 0.02}%`,
+            top: `${10 + mousePosition.y * 0.02}%`,
+          }}
+        ></div>
+        <div
+          className="absolute w-80 h-80 rounded-full premium-gradient opacity-15 blur-3xl animate-float"
+          style={{
+            right: `${15 + mousePosition.x * 0.015}%`,
+            bottom: `${20 + mousePosition.y * 0.015}%`,
+            animationDelay: '2s'
+          }}
+        ></div>
+        <div
+          className="absolute w-64 h-64 rounded-full premium-gradient opacity-10 blur-3xl animate-float"
+          style={{
+            left: `${60 + mousePosition.x * 0.01}%`,
+            top: `${60 + mousePosition.y * 0.01}%`,
+            animationDelay: '4s'
+          }}
+        ></div>
       </div>
 
-      <div className="text-center max-w-6xl mx-auto relative z-10">
-        {/* Availability Status */}
-        <div className="inline-flex items-center px-6 py-3 bg-green-500/20 border border-green-500/30 rounded-full text-green-300 text-lg font-semibold mb-8 animate-pulse">
-          <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-ping"></div>
-          AVAILABLE FOR IMMEDIATE START
-        </div>
-
-        <div className="mb-12">
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tight">
-            Phalguna Avalagunta
-          </h1>
-
-          <div className="text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 font-bold mb-10 h-20 flex items-center justify-center min-h-[5rem]">
-            <span>{text}</span>
-            <span className="border-r-3 border-blue-400 animate-pulse ml-2 h-12"></span>
+      {/* Navigation */}
+      <nav className="absolute top-0 left-0 right-0 z-50 p-6">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="text-2xl font-bold text-gradient design-heading">
+            Phalguna A.
           </div>
-
-          <p className="text-2xl md:text-3xl text-gray-200 mb-8 max-w-5xl mx-auto leading-relaxed font-medium">
-            <span className="text-blue-300 font-bold">3+ Years</span> Data Analysis Experience |
-            <span className="text-purple-300 font-bold"> AWS Cloud Specialist</span> |
-            <span className="text-green-300 font-bold"> London-Based</span>
-          </p>
-
-          {/* Achievement Highlights */}
-          <div className="grid md:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 backdrop-blur-sm rounded-xl p-6 border border-blue-500/30 hover:scale-105 transition-transform">
-              <div className="text-3xl font-bold text-blue-300">30%</div>
-              <div className="text-blue-200 font-medium">Process Efficiency Boost</div>
-              <div className="text-xs text-gray-400 mt-1">Morae Analytics</div>
-            </div>
-            <div className="bg-gradient-to-br from-purple-600/20 to-purple-800/20 backdrop-blur-sm rounded-xl p-6 border border-purple-500/30 hover:scale-105 transition-transform">
-              <div className="text-3xl font-bold text-purple-300">99%</div>
-              <div className="text-purple-200 font-medium">Data Accuracy</div>
-              <div className="text-xs text-gray-400 mt-1">High-Volume Processing</div>
-            </div>
-            <div className="bg-gradient-to-br from-green-600/20 to-green-800/20 backdrop-blur-sm rounded-xl p-6 border border-green-500/30 hover:scale-105 transition-transform">
-              <div className="text-3xl font-bold text-green-300">AWS</div>
-              <div className="text-green-200 font-medium">Solutions Architect</div>
-              <div className="text-xs text-gray-400 mt-1">Certification In Progress</div>
-            </div>
-            <div className="bg-gradient-to-br from-orange-600/20 to-orange-800/20 backdrop-blur-sm rounded-xl p-6 border border-orange-500/30 hover:scale-105 transition-transform">
-              <div className="text-3xl font-bold text-orange-300">UK</div>
-              <div className="text-orange-200 font-medium">Work Authorization</div>
-              <div className="text-xs text-gray-400 mt-1">Immediate Start</div>
-            </div>
+          <div className="hidden md:flex space-x-8">
+            {['Work', 'About', 'Experience', 'Contact'].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-white/80 hover:text-white transition-all duration-300 relative group"
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+              </a>
+            ))}
           </div>
         </div>
+      </nav>
 
-        {/* Call-to-Action Buttons */}
-        <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-12">
-          <a
-            href="mailto:phalguna.avalagunta252@outlook.com"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-xl text-xl font-bold hover:scale-110 transform transition-all duration-300 shadow-2xl hover:shadow-blue-500/30 min-w-[280px] group"
-          >
-            <span className="group-hover:hidden">💼 HIRE ME NOW</span>
-            <span className="hidden group-hover:inline">📧 Send Email</span>
-          </a>
-          <a
-            href="tel:+447741820922"
-            className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-12 py-5 rounded-xl text-xl font-bold hover:scale-110 transform transition-all duration-300 shadow-2xl hover:shadow-green-500/30 min-w-[280px] group"
-          >
-            <span className="group-hover:hidden">📞 CALL NOW</span>
-            <span className="hidden group-hover:inline">+44 07741820922</span>
-          </a>
-          <a
-            href="#projects"
-            className="border-3 border-purple-400 text-purple-300 px-12 py-5 rounded-xl text-xl font-bold hover:bg-purple-400 hover:text-white transform transition-all duration-300 min-w-[280px]"
-          >
-            📁 VIEW PORTFOLIO
-          </a>
-        </div>
+      {/* Main Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-        {/* Professional Contact Info */}
-        <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 max-w-4xl mx-auto border border-white/10 mb-16">
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div className="text-gray-300">
-              <div className="text-2xl mb-2">📍</div>
-              <div className="font-semibold text-white">London, UK</div>
-              <div className="text-sm">Croydon, England</div>
+          {/* Left Column - Content */}
+          <div className="space-y-8 animate-slideUp">
+            {/* Status Badge */}
+            <div className="inline-flex items-center glass-effect px-6 py-3 rounded-full neon-glow">
+              <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+              <span className="text-green-300 font-semibold">Open to Work - Immediate Start</span>
             </div>
-            <div className="text-gray-300">
-              <div className="text-2xl mb-2">📧</div>
-              <div className="font-semibold text-white">Email Ready</div>
-              <div className="text-sm">phalguna.avalagunta252@outlook.com</div>
+
+            {/* Main Heading */}
+            <div className="space-y-4">
+              <h1 className="heading-xl text-white leading-none">
+                Phalguna
+                <br />
+                <span className="text-gradient">Avalagunta</span>
+              </h1>
+
+              {/* Animated Subtitle */}
+              <div className="h-20 flex items-center">
+                <h2 className="text-2xl md:text-4xl font-light text-white/90 min-h-[3rem]">
+                  <span className="text-gradient font-semibold">{text}</span>
+                  <span className="border-r-3 border-purple-400 animate-pulse ml-2"></span>
+                </h2>
+              </div>
             </div>
-            <div className="text-gray-300">
-              <div className="text-2xl mb-2">💼</div>
-              <div className="font-semibold text-white">LinkedIn</div>
-              <div className="text-sm">linkedin.com/in/phalguna-cloud-ai</div>
+
+            {/* Professional Summary */}
+            <div className="space-y-4">
+              <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl">
+                <span className="text-gradient font-semibold">Cloud & AI Developer</span> with hands-on AWS experience.
+                <br />
+                Currently completing <span className="text-white font-semibold">MSc Computer Science @ UEL</span>.
+                <br />
+                Specialized in <span className="text-gradient font-semibold">Python, Machine Learning & AWS</span>.
+              </p>
+            </div>
+
+            {/* Achievement Stats */}
+            <div className="grid grid-cols-3 gap-6 py-8">
+              <div className="glass-effect p-6 rounded-2xl text-center interactive-card">
+                <div className="text-3xl font-bold text-gradient">3+</div>
+                <div className="text-white/60 text-sm">Years Experience</div>
+              </div>
+              <div className="glass-effect p-6 rounded-2xl text-center interactive-card">
+                <div className="text-3xl font-bold text-gradient">6+</div>
+                <div className="text-white/60 text-sm">Major Projects</div>
+              </div>
+              <div className="glass-effect p-6 rounded-2xl text-center interactive-card">
+                <div className="text-3xl font-bold text-gradient">85%</div>
+                <div className="text-white/60 text-sm">ML Accuracy</div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#work"
+                className="button-premium text-white px-8 py-4 rounded-2xl text-lg font-semibold text-center"
+              >
+                View My Work
+              </a>
+              <a
+                href="mailto:phalguna.avalagunta252@outlook.com"
+                className="glass-effect border-2 border-white/20 text-white px-8 py-4 rounded-2xl text-lg font-semibold text-center hover:bg-white/10 transition-all duration-300"
+              >
+                Let&apos;s Connect
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column - Profile & Visual Elements */}
+          <div className="relative flex justify-center lg:justify-end animate-fadeIn">
+            <div className="relative">
+              {/* Main Profile Image Container */}
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                {/* Animated Background Rings */}
+                <div className="absolute inset-0 rounded-full premium-gradient opacity-20 animate-pulse-slow"></div>
+                <div className="absolute inset-4 rounded-full premium-gradient opacity-30 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+
+                {/* Profile Image */}
+                <div className="absolute inset-8 profile-image animate-glow">
+                  <Image
+                    src="/images/profile/Pha.A.png"
+                    alt="Phalguna Avalagunta - Senior UI/UX Engineer"
+                    width={400}
+                    height={400}
+                    priority
+                    className="rounded-full"
+                    onError={(e) => {
+                      // Fallback for when image doesn't exist yet
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = `
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+                          <span class="text-white text-6xl font-bold">PA</span>
+                        </div>
+                      `;
+                    }}
+                  />
+                </div>
+
+                {/* Floating Skill Badges */}
+                <div className="absolute -top-8 -left-8 glass-effect px-4 py-2 rounded-full animate-float">
+                  <span className="text-white font-semibold">Figma Expert</span>
+                </div>
+                <div className="absolute top-8 -right-12 glass-effect px-4 py-2 rounded-full animate-float" style={{ animationDelay: '1s' }}>
+                  <span className="text-white font-semibold">Design Systems</span>
+                </div>
+                <div className="absolute -bottom-8 right-0 glass-effect px-4 py-2 rounded-full animate-float" style={{ animationDelay: '2s' }}>
+                  <span className="text-white font-semibold">UX Strategy</span>
+                </div>
+                <div className="absolute bottom-16 -left-16 glass-effect px-4 py-2 rounded-full animate-float" style={{ animationDelay: '3s' }}>
+                  <span className="text-white font-semibold">User Research</span>
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/10 rounded-full animate-pulse-slow"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-white/5 rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="animate-bounce">
-          <svg className="w-10 h-10 text-blue-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="glass-effect p-3 rounded-full">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
       </div>

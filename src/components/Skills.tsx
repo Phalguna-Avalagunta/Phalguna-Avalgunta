@@ -3,49 +3,59 @@
 import { useState } from 'react';
 
 const skillCategories = {
-  'AI & Machine Learning': [
-    { name: 'Python', level: 90 },
-    { name: 'TensorFlow', level: 85 },
-    { name: 'PyTorch', level: 80 },
-    { name: 'Scikit-learn', level: 85 },
-    { name: 'OpenCV', level: 75 },
-    { name: 'Natural Language Processing', level: 80 }
+  'Design Leadership': [
+    { name: 'Design Strategy', level: 98 },
+    { name: 'Team Leadership', level: 96 },
+    { name: 'Design Operations', level: 94 },
+    { name: 'Stakeholder Management', level: 92 },
+    { name: 'Mentoring & Coaching', level: 95 },
+    { name: 'Design Culture Building', level: 90 }
   ],
-  'Cloud & DevOps': [
-    { name: 'AWS', level: 85 },
-    { name: 'Azure', level: 80 },
-    { name: 'Docker', level: 85 },
-    { name: 'Kubernetes', level: 75 },
-    { name: 'Terraform', level: 70 },
-    { name: 'CI/CD', level: 80 }
+  'Design Systems': [
+    { name: 'Component Libraries', level: 95 },
+    { name: 'Design Tokens', level: 92 },
+    { name: 'Figma', level: 98 },
+    { name: 'Storybook', level: 88 },
+    { name: 'Documentation', level: 90 },
+    { name: 'Accessibility Standards', level: 85 }
   ],
-  'Programming': [
-    { name: 'Python', level: 90 },
-    { name: 'JavaScript/TypeScript', level: 85 },
-    { name: 'Java', level: 80 },
-    { name: 'C++', level: 75 },
-    { name: 'SQL', level: 85 },
-    { name: 'React', level: 80 }
+  'UX Research & Strategy': [
+    { name: 'User Research', level: 92 },
+    { name: 'Usability Testing', level: 90 },
+    { name: 'Journey Mapping', level: 88 },
+    { name: 'Information Architecture', level: 85 },
+    { name: 'Service Design', level: 80 },
+    { name: 'Design Thinking', level: 94 }
   ],
-  'Data & Analytics': [
-    { name: 'Data Analysis', level: 85 },
-    { name: 'Data Visualization', level: 80 },
-    { name: 'Statistical Modeling', level: 75 },
-    { name: 'Big Data', level: 70 },
-    { name: 'MongoDB', level: 75 },
-    { name: 'PostgreSQL', level: 80 }
+  'Product & Interaction Design': [
+    { name: 'Product Strategy', level: 90 },
+    { name: 'Interaction Design', level: 92 },
+    { name: 'Prototyping', level: 88 },
+    { name: 'Visual Design', level: 85 },
+    { name: 'Mobile Design', level: 87 },
+    { name: 'Responsive Design', level: 90 }
   ]
 };
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState('AI & Machine Learning');
+  const [activeCategory, setActiveCategory] = useState('Design Leadership');
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="py-32 px-6 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Skills & Expertise</h2>
-          <p className="text-purple-300 text-lg">Technologies and tools I work with</p>
+        <div className="text-center mb-20 animate-slideUp">
+          <div className="inline-flex items-center glass-effect px-6 py-3 rounded-full mb-8">
+            <span className="text-purple-300 font-semibold">Core Competencies</span>
+          </div>
+          <h2 className="heading-lg text-white mb-6">
+            Mastery Across
+            <br />
+            <span className="text-gradient">Design Disciplines</span>
+          </h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            Two decades of hands-on experience spanning design leadership, systems thinking,
+            user research, and strategic product design.
+          </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -53,10 +63,10 @@ export default function Skills() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  ? 'glass-effect neon-glow text-white'
+                  : 'text-white/60 hover:text-white hover:bg-white/5'
               }`}
             >
               {category}
@@ -64,18 +74,18 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-8 rounded-2xl backdrop-blur-sm border border-purple-500/20">
-          <h3 className="text-2xl font-semibold text-white mb-8 text-center">{activeCategory}</h3>
+        <div className="glass-effect p-8 rounded-3xl interactive-card">
+          <h3 className="text-2xl font-semibold text-white mb-8 text-center design-heading">{activeCategory}</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {skillCategories[activeCategory as keyof typeof skillCategories].map((skill, index) => (
-              <div key={index} className="space-y-2">
+              <div key={index} className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-300 font-medium">{skill.name}</span>
-                  <span className="text-purple-300 text-sm">{skill.level}%</span>
+                  <span className="text-white font-medium">{skill.name}</span>
+                  <span className="text-gradient font-semibold">{skill.level}%</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
+                <div className="w-full bg-white/10 rounded-full h-3">
                   <div
-                    className="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full transition-all duration-1000 ease-out"
+                    className="premium-gradient h-3 rounded-full transition-all duration-1000 ease-out"
                     style={{ width: `${skill.level}%` }}
                   ></div>
                 </div>
@@ -84,19 +94,19 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
-          <div className="text-center p-6 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl backdrop-blur-sm border border-purple-500/20">
-            <div className="text-3xl font-bold text-purple-300 mb-2">5+</div>
-            <div className="text-gray-300">Programming Languages</div>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl backdrop-blur-sm border border-purple-500/20">
-            <div className="text-3xl font-bold text-purple-300 mb-2">10+</div>
-            <div className="text-gray-300">AI/ML Frameworks</div>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl backdrop-blur-sm border border-purple-500/20">
-            <div className="text-3xl font-bold text-purple-300 mb-2">15+</div>
-            <div className="text-gray-300">Cloud Technologies</div>
-          </div>
+        <div className="mt-20 grid md:grid-cols-4 gap-8">
+          {[
+            { number: '20+', label: 'Years of Expertise', description: 'Leading design teams' },
+            { number: '50+', label: 'Design Systems', description: 'Created and scaled' },
+            { number: '500+', label: 'Projects Delivered', description: 'Across industries' },
+            { number: '200+', label: 'Designers Mentored', description: 'Career development' }
+          ].map((stat, index) => (
+            <div key={index} className="glass-effect rounded-2xl p-6 text-center interactive-card">
+              <div className="text-3xl font-bold text-gradient mb-2">{stat.number}</div>
+              <div className="text-white font-semibold mb-1">{stat.label}</div>
+              <div className="text-white/60 text-sm">{stat.description}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
