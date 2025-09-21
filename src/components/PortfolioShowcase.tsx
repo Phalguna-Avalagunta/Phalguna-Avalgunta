@@ -1,145 +1,144 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 const portfolioProjects = [
   {
     id: 1,
-    title: 'Enterprise Design System',
-    client: 'Fortune 500 Financial Services',
-    year: '2023',
-    category: 'Design Systems',
-    description: 'Led the creation of a comprehensive design system serving 50+ product teams across 15 countries. Reduced design-to-development time by 60% and improved consistency across 200+ digital touchpoints.',
+    title: 'E-Commerce Platform on AWS',
+    type: 'Academic Project',
+    year: '2024',
+    category: 'Cloud Development',
+    description: 'Full-stack e-commerce application deployed on AWS with auto-scaling capabilities. Built using React frontend, Node.js backend, PostgreSQL database, and containerized with Docker.',
     challenges: [
-      'Unifying 15 different product experiences',
-      'Creating scalable component library',
-      'Establishing design governance',
-      'Cross-team adoption strategy'
+      'Implementing auto-scaling for 1000+ concurrent users',
+      'Integrating Stripe payment processing',
+      'Setting up CI/CD pipeline with AWS',
+      'Optimizing database performance'
     ],
     results: [
-      '60% faster design-to-development',
-      '90% reduction in design inconsistencies',
-      '$2M annual savings in development costs',
-      '98% designer adoption rate'
+      '99.9% uptime achieved',
+      '1000+ concurrent users supported',
+      'Sub-3s page load times',
+      'Secure payment processing'
     ],
-    technologies: ['Figma', 'Storybook', 'React', 'Design Tokens', 'Zeroheight'],
-    image: '/images/projects/design-system.jpg',
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS EC2', 'AWS RDS', 'Docker', 'Stripe API'],
+    demo: 'https://github.com/phalguna-avalgunta/ecommerce-aws',
     featured: true
   },
   {
     id: 2,
-    title: 'AI-Powered Investment Platform',
-    client: 'Fintech Startup (Series B)',
-    year: '2022',
-    category: 'Product Design',
-    description: 'Designed end-to-end UX for an AI-driven investment platform. Led user research, created information architecture, and designed intuitive interfaces for complex financial data visualization.',
+    title: 'ML Stock Price Prediction Model',
+    type: 'Academic Project',
+    year: '2024',
+    category: 'Machine Learning',
+    description: 'Deep learning model using LSTM networks to predict stock prices. Deployed as REST API on AWS SageMaker with real-time prediction capabilities.',
     challenges: [
-      'Simplifying complex financial data',
-      'Building trust in AI recommendations',
-      'Mobile-first responsive design',
-      'Regulatory compliance requirements'
+      'Handling time-series data preprocessing',
+      'Optimizing LSTM architecture',
+      'Deploying model to AWS SageMaker',
+      'Creating real-time prediction API'
     ],
     results: [
-      '40% increase in user engagement',
-      '25% improvement in conversion rate',
-      '4.8/5 App Store rating',
-      '300K+ active users'
+      '85% prediction accuracy achieved',
+      '10,000+ predictions daily',
+      'Sub-second API response time',
+      'Scalable cloud deployment'
     ],
-    technologies: ['Figma', 'Principle', 'InVision', 'Hotjar', 'Mixpanel'],
-    image: '/images/projects/fintech-app.jpg'
+    technologies: ['Python', 'TensorFlow', 'LSTM', 'AWS SageMaker', 'Flask', 'Pandas', 'NumPy'],
+    demo: 'https://github.com/phalguna-avalgunta/stock-prediction-ml'
   },
   {
     id: 3,
-    title: 'Healthcare Provider Portal',
-    client: 'Major Healthcare Network',
-    year: '2021',
-    category: 'UX Strategy',
-    description: 'Redesigned provider portal serving 10,000+ healthcare professionals. Conducted extensive user research and usability testing to streamline clinical workflows and improve patient care delivery.',
+    title: 'Serverless Analytics Dashboard',
+    type: 'Academic Project',
+    year: '2024',
+    category: 'Cloud Development',
+    description: 'Real-time analytics dashboard using serverless architecture. Built with AWS Lambda, API Gateway, and DynamoDB for processing 1M+ events daily.',
     challenges: [
-      'Complex regulatory environment',
-      'Legacy system integration',
-      'Multi-role user needs',
-      'Critical workflow optimization'
+      'Designing serverless architecture',
+      'Real-time data processing',
+      'Cost optimization',
+      'Interactive data visualizations'
     ],
     results: [
-      '35% reduction in task completion time',
-      '50% decrease in support tickets',
-      '95% user satisfaction score',
-      'HIPAA compliance achieved'
+      '1M+ events processed daily',
+      '80% cost reduction vs traditional',
+      'Real-time dashboard updates',
+      'Auto-scaling capabilities'
     ],
-    technologies: ['Sketch', 'Axure', 'UserZoom', 'Optimal Workshop'],
-    image: '/images/projects/healthcare-portal.jpg'
+    technologies: ['AWS Lambda', 'API Gateway', 'DynamoDB', 'JavaScript', 'Chart.js', 'WebSocket'],
+    demo: 'https://github.com/phalguna-avalgunta/serverless-analytics'
   },
   {
     id: 4,
-    title: 'E-commerce Marketplace Redesign',
-    client: 'Global Retail Platform',
-    year: '2020',
-    category: 'Product Strategy',
-    description: 'Led complete UX transformation of B2B marketplace serving 100,000+ merchants. Implemented design thinking methodology and data-driven optimization to improve seller onboarding and buyer experience.',
+    title: 'Computer Vision Quality Control',
+    type: 'Personal Project',
+    year: '2024',
+    category: 'AI/Computer Vision',
+    description: 'Real-time quality control system using computer vision for defect detection. Containerized and deployed on AWS ECS with IoT sensor integration.',
     challenges: [
-      'Multi-sided marketplace complexity',
-      'International localization',
-      'Mobile commerce optimization',
-      'Conversion funnel optimization'
+      'Training CNN for defect detection',
+      'Real-time image processing',
+      'Edge computing optimization',
+      'IoT sensor integration'
     ],
     results: [
-      '45% improvement in seller onboarding',
-      '30% increase in GMV',
-      '20% reduction in cart abandonment',
-      '15 new market expansions'
+      '92% defect detection accuracy',
+      'Real-time processing capability',
+      'Reduced manual inspection by 70%',
+      'Edge deployment ready'
     ],
-    technologies: ['Adobe XD', 'Maze', 'Amplitude', 'Optimizely'],
-    image: '/images/projects/ecommerce-redesign.jpg'
+    technologies: ['Python', 'OpenCV', 'PyTorch', 'Docker', 'AWS ECS', 'IoT Core'],
+    demo: 'https://github.com/phalguna-avalgunta/cv-quality-control'
   },
   {
     id: 5,
-    title: 'Smart City IoT Dashboard',
-    client: 'Municipal Government',
-    year: '2019',
-    category: 'Data Visualization',
-    description: 'Designed comprehensive dashboard for city officials to monitor and manage IoT infrastructure. Created intuitive data visualizations for complex urban systems including traffic, energy, and public safety.',
+    title: 'Data Analysis Automation Pipeline',
+    type: 'Professional Experience',
+    year: '2023',
+    category: 'Data Analysis',
+    description: 'Automated data analysis pipeline at Morae, reducing manual processing time by 30%. Built using Python, SQL, and integrated with existing business systems.',
     challenges: [
-      'Real-time data visualization',
-      'Complex stakeholder requirements',
-      'Accessibility standards',
-      'Crisis management workflows'
+      'Legacy system integration',
+      'Complex data transformation',
+      'Error handling and validation',
+      'Performance optimization'
     ],
     results: [
-      '50% faster incident response',
-      '25% improvement in resource allocation',
-      'WCAG 2.1 AA compliance',
-      'Award: Government Innovation Design'
+      '30% reduction in manual work',
+      '99% data accuracy maintained',
+      '10,000+ records processed daily',
+      'Zero-downtime deployment'
     ],
-    technologies: ['D3.js', 'Tableau', 'Figma', 'React', 'WebGL'],
-    image: '/images/projects/smart-city.jpg'
+    technologies: ['Python', 'SQL', 'Pandas', 'Excel API', 'Automation Scripts'],
+    demo: 'Proprietary - Morae Internal System'
   },
   {
     id: 6,
-    title: 'Global SaaS Platform Redesign',
-    client: 'Enterprise Software Company',
-    year: '2018',
-    category: 'Product Design',
-    description: 'Led UX transformation of enterprise SaaS platform used by 1M+ professionals worldwide. Focused on workflow optimization, information hierarchy, and cross-platform consistency.',
+    title: 'Process Optimization System',
+    type: 'Professional Experience',
+    year: '2022',
+    category: 'Operations',
+    description: 'Developed process improvement system at Sagility, increasing team efficiency by 25%. Implemented API integrations and workflow automation.',
     challenges: [
-      'Legacy user base resistance',
-      'Complex feature set',
-      'Multi-platform consistency',
-      'Enterprise security requirements'
+      'Complex workflow analysis',
+      'Multi-system integration',
+      'User training and adoption',
+      'Performance monitoring'
     ],
     results: [
-      '40% increase in daily active users',
-      '60% reduction in onboarding time',
-      '35% improvement in feature adoption',
-      '20% decrease in churn rate'
+      '25% efficiency improvement',
+      '99% accuracy maintained',
+      '50% reduction in processing time',
+      'Team-wide adoption achieved'
     ],
-    technologies: ['Sketch', 'InVision', 'Framer', 'Jira', 'Confluence'],
-    image: '/images/projects/saas-platform.jpg'
+    technologies: ['Python', 'APIs', 'Database Management', 'Process Automation'],
+    demo: 'Proprietary - Sagility Internal System'
   }
 ];
 
-const categories = ['All', 'Design Systems', 'Product Design', 'UX Strategy', 'Product Strategy', 'Data Visualization'];
+const categories = ['All', 'Cloud Development', 'Machine Learning', 'AI/Computer Vision', 'Data Analysis', 'Operations'];
 
 export default function PortfolioShowcase() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -150,37 +149,37 @@ export default function PortfolioShowcase() {
     : portfolioProjects.filter(project => project.category === selectedCategory);
 
   return (
-    <section id="work" className="py-32 px-6 relative">
+    <section id="work" className="py-32 px-6 relative neural-grid">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20 animate-slideUp">
-          <div className="inline-flex items-center glass-effect px-6 py-3 rounded-full mb-8">
-            <span className="text-purple-300 font-semibold">Portfolio Showcase</span>
+          <div className="terminal-glass px-6 py-3 rounded-lg mb-8 inline-block">
+            <span className="text-green-400 mono-text">$ find ./projects -type f -name &quot;*.md&quot;</span>
           </div>
-          <h2 className="heading-lg text-white mb-6">
-            20+ Years of
+          <h2 className="heading-lg text-white mb-6 design-heading">
+            <span className="mono-text text-green-400"># </span>Project
             <br />
-            <span className="text-gradient">Design Excellence</span>
+            <span className="ai-text-gradient">Portfolio</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            From Fortune 500 enterprises to innovative startups, I&apos;ve led design initiatives
-            that drive business growth and create exceptional user experiences.
+          <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed mono-text">
+            Real-world projects spanning cloud development, machine learning,<br/>
+            and data analysis • 3+ years of hands-on experience
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-3 md:px-6 py-2 md:py-3 rounded-lg font-semibold transition-all duration-300 mono-text text-xs md:text-sm ${
                 selectedCategory === category
-                  ? 'glass-effect neon-glow text-white'
-                  : 'text-white/60 hover:text-white hover:bg-white/5'
+                  ? 'terminal-glass ai-glow text-green-400'
+                  : 'text-white/60 hover:text-white terminal-border'
               }`}
             >
-              {category}
+              ./{category.toLowerCase().replace(' ', '_')}
             </button>
           ))}
         </div>
@@ -188,40 +187,41 @@ export default function PortfolioShowcase() {
         {/* Featured Project */}
         {selectedCategory === 'All' && (
           <div className="mb-20">
-            <div className="glass-effect rounded-3xl p-8 interactive-card">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="terminal-glass rounded-lg p-6 md:p-8 neural-card">
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold">
-                      Featured Project
+                  <div className="flex flex-wrap items-center gap-4">
+                    <span className="bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-400 px-3 py-1 rounded-lg text-xs font-bold border border-green-400/30 mono-text">
+                      featured_project
                     </span>
-                    <span className="text-white/60">{portfolioProjects[0].year}</span>
+                    <span className="text-white/60 mono-text text-sm">{portfolioProjects[0].year}</span>
+                    <span className="text-orange-400 mono-text text-sm">{portfolioProjects[0].type}</span>
                   </div>
-                  <h3 className="text-4xl font-bold text-white design-heading">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white design-heading">
                     {portfolioProjects[0].title}
                   </h3>
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <p className="text-white/80 text-base leading-relaxed">
                     {portfolioProjects[0].description}
                   </p>
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="text-white font-semibold mb-3">Key Results</h4>
+                      <h4 className="text-white font-semibold mb-3 mono-text text-sm">Key Results:</h4>
                       <ul className="space-y-2">
                         {portfolioProjects[0].results.slice(0, 2).map((result, index) => (
-                          <li key={index} className="text-white/70 flex items-center">
-                            <span className="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
+                          <li key={index} className="text-white/70 flex items-center text-sm">
+                            <span className="text-green-400 mr-3 mono-text">▸</span>
                             {result}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold mb-3">Technologies</h4>
+                      <h4 className="text-white font-semibold mb-3 mono-text text-sm">Tech Stack:</h4>
                       <div className="flex flex-wrap gap-2">
-                        {portfolioProjects[0].technologies.slice(0, 3).map((tech, index) => (
+                        {portfolioProjects[0].technologies.slice(0, 4).map((tech, index) => (
                           <span
                             key={index}
-                            className="bg-white/10 text-white/80 px-3 py-1 rounded-full text-sm"
+                            className="terminal-glass text-white/80 px-2 py-1 rounded-lg text-xs mono-text"
                           >
                             {tech}
                           </span>
@@ -229,25 +229,25 @@ export default function PortfolioShowcase() {
                       </div>
                     </div>
                   </div>
+                  <div className="flex flex-wrap gap-4">
+                    <a
+                      href={portfolioProjects[0].demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ai-button text-white px-4 py-2 rounded-lg font-semibold mono-text text-sm"
+                    >
+                      $ view --demo
+                    </a>
+                  </div>
                 </div>
                 <div className="relative">
-                  <div className="aspect-video glass-effect rounded-2xl overflow-hidden neon-glow">
-                    <Image
-                      src={portfolioProjects[0].image}
-                      alt={portfolioProjects[0].title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.parentElement!.innerHTML = `
-                          <div class="w-full h-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-                            <span class="text-white text-2xl font-bold">Design System Preview</span>
-                          </div>
-                        `;
-                      }}
-                    />
+                  <div className="aspect-video terminal-glass rounded-lg overflow-hidden ai-glow">
+                    <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-blue-600/20 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-4xl md:text-5xl mb-4">☁️</div>
+                        <span className="text-white text-lg md:text-xl font-bold mono-text">AWS Cloud Project</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -256,78 +256,82 @@ export default function PortfolioShowcase() {
         )}
 
         {/* Project Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.slice(selectedCategory === 'All' ? 1 : 0).map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {filteredProjects.slice(selectedCategory === 'All' ? 1 : 0).map((project) => (
             <div
               key={project.id}
-              className="glass-effect rounded-2xl overflow-hidden interactive-card cursor-pointer"
+              className="terminal-glass rounded-lg overflow-hidden neural-card cursor-pointer"
               onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
             >
-              {/* Project Image */}
+              {/* Project Preview */}
               <div className="aspect-video relative overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={250}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement!.innerHTML = `
-                      <div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-lg font-bold">${project.category}</span>
-                      </div>
-                    `;
-                  }}
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-black/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {project.category}
+                <div className="w-full h-full bg-gradient-to-br from-purple-600/20 to-cyan-600/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">
+                      {project.category === 'Cloud Development' ? '☁️' :
+                       project.category === 'Machine Learning' ? '🤖' :
+                       project.category === 'AI/Computer Vision' ? '👁️' :
+                       project.category === 'Data Analysis' ? '📊' : '⚙️'}
+                    </div>
+                    <span className="text-white text-sm font-bold mono-text">{project.category}</span>
+                  </div>
+                </div>
+                <div className="absolute top-3 left-3">
+                  <span className="terminal-glass text-white px-2 py-1 rounded-lg text-xs font-semibold mono-text">
+                    {project.type}
                   </span>
                 </div>
               </div>
 
               {/* Project Info */}
-              <div className="p-6 space-y-4">
+              <div className="p-4 md:p-6 space-y-4">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                  <span className="text-white/60 text-sm">{project.year}</span>
+                  <h3 className="text-lg md:text-xl font-bold text-white">{project.title}</h3>
+                  <span className="text-white/60 text-sm mono-text">{project.year}</span>
                 </div>
-                <p className="text-white/70 text-sm">{project.client}</p>
-                <p className="text-white/80 leading-relaxed">
-                  {project.description.substring(0, 120)}...
+                <p className="text-white/80 leading-relaxed text-sm">
+                  {project.description.substring(0, 100)}...
                 </p>
 
                 {selectedProject === project.id && (
                   <div className="space-y-4 animate-fadeIn">
                     <div>
-                      <h4 className="text-white font-semibold mb-2">Key Challenges</h4>
+                      <h4 className="text-white font-semibold mb-2 mono-text text-sm">$ cat challenges.log</h4>
                       <ul className="space-y-1">
                         {project.challenges.slice(0, 3).map((challenge, idx) => (
                           <li key={idx} className="text-white/70 text-sm flex items-center">
-                            <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2"></span>
+                            <span className="text-orange-400 mr-2 mono-text">▸</span>
                             {challenge}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold mb-2">Results</h4>
+                      <h4 className="text-white font-semibold mb-2 mono-text text-sm">$ cat results.log</h4>
                       <ul className="space-y-1">
                         {project.results.slice(0, 2).map((result, idx) => (
                           <li key={idx} className="text-green-400 text-sm flex items-center">
-                            <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></span>
+                            <span className="text-green-400 mr-2 mono-text">✓</span>
                             {result}
                           </li>
                         ))}
                       </ul>
                     </div>
+                    {project.demo !== 'Proprietary - Morae Internal System' && project.demo !== 'Proprietary - Sagility Internal System' && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ai-button text-white px-4 py-2 rounded-lg font-semibold mono-text text-xs inline-block"
+                      >
+                        $ git show --demo
+                      </a>
+                    )}
                   </div>
                 )}
 
-                <button className="text-purple-400 hover:text-purple-300 font-medium text-sm transition-colors">
-                  {selectedProject === project.id ? 'Show Less' : 'View Details'}
+                <button className="text-green-400 hover:text-green-300 font-medium text-sm transition-colors mono-text">
+                  {selectedProject === project.id ? '[-] collapse' : '[+] expand'}
                 </button>
               </div>
             </div>
@@ -336,25 +340,28 @@ export default function PortfolioShowcase() {
 
         {/* Call to Action */}
         <div className="text-center mt-20">
-          <div className="glass-effect rounded-3xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-4 design-heading">
-              Ready to Create Something Amazing?
+          <div className="terminal-glass rounded-lg p-8 md:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 design-heading">
+              <span className="mono-text text-green-400">$ </span>Ready to Collaborate?
             </h3>
-            <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss how my 20+ years of design leadership can drive your next breakthrough product.
+            <p className="text-white/70 text-base md:text-lg mb-8 max-w-2xl mx-auto mono-text">
+              Let&apos;s build something amazing with
+              <span className="ai-text-gradient"> Python</span> •
+              <span className="ai-text-gradient"> AWS</span> •
+              <span className="ai-text-gradient"> Machine Learning</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:phalguna.avalagunta252@outlook.com"
-                className="button-premium text-white px-8 py-4 rounded-2xl text-lg font-semibold"
+                className="ai-button text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-lg font-semibold mono-text"
               >
-                Start a Project
+                $ start --project
               </a>
               <a
                 href="#contact"
-                className="glass-effect border-2 border-white/20 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/10 transition-all duration-300"
+                className="terminal-border text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-lg font-semibold hover:bg-white/10 transition-all duration-300 mono-text"
               >
-                Schedule a Call
+                $ schedule --call
               </a>
             </div>
           </div>

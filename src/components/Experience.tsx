@@ -123,20 +123,20 @@ export default function Experience() {
     : experiences.filter(exp => exp.type === filter);
 
   return (
-    <section id="experience" className="py-32 px-6 relative">
+    <section id="experience" className="py-32 px-6 relative data-matrix">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 animate-slideUp">
-          <div className="inline-flex items-center glass-effect px-6 py-3 rounded-full mb-8">
-            <span className="text-purple-300 font-semibold">Career Journey</span>
+          <div className="terminal-glass px-6 py-3 rounded-lg mb-8 inline-block">
+            <span className="text-green-400 mono-text">$ grep -r &quot;experience&quot; ./career/</span>
           </div>
-          <h2 className="heading-lg text-white mb-6">
-            Professional
+          <h2 className="heading-lg text-white mb-6 design-heading">
+            <span className="mono-text text-green-400"># </span>Professional
             <br />
-            <span className="text-gradient">Experience & Projects</span>
+            <span className="ai-text-gradient">Experience & Projects</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            Real-world experience in data analysis and cutting-edge academic projects in AI, cloud computing,
-            and machine learning. Ready to deliver immediate impact.
+          <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed mono-text">
+            3+ years in data analysis • Current MSc Computer Science @ UEL<br/>
+            Building production ML models • AWS cloud infrastructure • Ready to deploy
           </p>
         </div>
 
@@ -145,13 +145,13 @@ export default function Experience() {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold transition-all duration-300 mono-text text-xs md:text-sm ${
                 filter === category
-                  ? 'glass-effect neon-glow text-white'
-                  : 'text-white/60 hover:text-white hover:bg-white/5'
+                  ? 'terminal-glass ai-glow text-green-400'
+                  : 'text-white/60 hover:text-white terminal-border'
               }`}
             >
-              {category}
+              ./{category.toLowerCase().replace(' ', '_')}
             </button>
           ))}
         </div>
@@ -160,68 +160,66 @@ export default function Experience() {
           {filteredExperiences.map((exp) => (
             <div
               key={exp.id}
-              className="glass-effect rounded-3xl p-8 interactive-card cursor-pointer"
+              className="terminal-glass rounded-lg p-6 md:p-8 neural-card cursor-pointer"
               onClick={() => setSelectedExp(selectedExp === exp.id ? null : exp.id)}
             >
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
                 <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`px-4 py-2 rounded-full text-sm font-bold ${
-                      exp.type === 'Design Leadership'
-                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                        : exp.type === 'Senior Design'
-                        ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
-                        : 'bg-gradient-to-r from-green-500 to-blue-500 text-white'
+                  <div className="flex flex-wrap items-center gap-4 mb-4">
+                    <div className={`px-3 py-1 rounded-lg mono-text text-xs font-bold ${
+                      exp.type === 'Professional Experience'
+                        ? 'bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-400 border border-green-400/30'
+                        : exp.type === 'Academic Project'
+                        ? 'bg-gradient-to-r from-orange-500/20 to-purple-500/20 text-orange-400 border border-orange-400/30'
+                        : 'bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-400 border border-purple-400/30'
                     }`}>
-                      {exp.type}
+                      {exp.type.toLowerCase().replace(' ', '_')}
                     </div>
-                    <div className="text-2xl">
-                      {exp.type === 'Design Leadership' ? '👑' :
-                       exp.type === 'Senior Design' ? '🎯' :
-                       exp.type === 'Product Strategy' ? '📊' :
-                       exp.type === 'Government Design' ? '🏛️' : '🚀'}
+                    <div className="text-xl">
+                      {exp.type === 'Professional Experience' ? '💼' :
+                       exp.type === 'Academic Project' ? '🎓' : '🚀'}
                     </div>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 design-heading">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 design-heading">
                     {exp.title}
                   </h3>
 
-                  <div className="text-xl text-gradient font-semibold mb-2">
+                  <div className="text-lg ai-text-gradient font-semibold mb-2">
                     {exp.company}
                   </div>
 
-                  <div className="flex flex-col md:flex-row gap-4 text-gray-400 mb-4">
+                  <div className="flex flex-col md:flex-row gap-2 md:gap-4 text-white/60 mb-4 mono-text text-xs md:text-sm">
                     <span className="flex items-center">
-                      <span className="mr-2">📅</span>
+                      <span className="text-green-400 mr-2">$</span>
                       {exp.duration}
                     </span>
                     <span className="flex items-center">
-                      <span className="mr-2">📍</span>
+                      <span className="text-orange-400 mr-2">@</span>
                       {exp.location}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="glass-effect px-4 py-2 rounded-xl">
-                      <span className="text-gradient font-bold">{exp.impact}</span>
+                  <div className="flex flex-wrap items-center gap-2 md:gap-4 mb-6">
+                    <div className="terminal-glass px-3 py-1 rounded-lg">
+                      <span className="ai-text-gradient font-bold mono-text text-xs">{exp.impact}</span>
                     </div>
-                    <div className="glass-effect px-4 py-2 rounded-xl">
-                      <span className="text-white font-medium">{exp.category}</span>
+                    <div className="terminal-glass px-3 py-1 rounded-lg">
+                      <span className="text-white font-medium mono-text text-xs">{exp.category}</span>
                     </div>
                   </div>
 
                   {selectedExp === exp.id && (
                     <div className="mt-6 space-y-6 animate-fadeIn">
                       <div>
-                        <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                          <span className="mr-2">🎯</span>
-                          Key Achievements:
+                        <h4 className="text-lg font-bold text-white mb-4 flex items-center mono-text">
+                          <span className="text-green-400 mr-2">$</span>
+                          cat achievements.log
                         </h4>
                         <ul className="space-y-3">
                           {exp.achievements.map((achievement, index) => (
-                            <li key={index} className="text-white/80 flex items-start">
-                              <span className="w-2 h-2 bg-purple-400 rounded-full mr-4 mt-2 flex-shrink-0"></span>
+                            <li key={index} className="text-white/80 flex items-start text-sm">
+                              <span className="text-green-400 mr-3 flex-shrink-0 mono-text">▸</span>
                               <span className="leading-relaxed">{achievement}</span>
                             </li>
                           ))}
@@ -232,15 +230,15 @@ export default function Experience() {
                 </div>
 
                 <div className="lg:w-80">
-                  <h4 className="text-lg font-bold text-white mb-4 flex items-center">
-                    <span className="mr-2">🛠️</span>
-                    Technologies:
+                  <h4 className="text-sm md:text-base font-bold text-white mb-4 flex items-center mono-text">
+                    <span className="text-orange-400 mr-2">$</span>
+                    tech_stack.json
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="bg-white/10 text-white/80 text-sm px-3 py-2 rounded-lg hover:bg-white/20 transition-colors"
+                        className="terminal-glass text-white/80 text-xs px-2 py-1 rounded-lg hover:text-green-400 transition-colors mono-text"
                       >
                         {tech}
                       </span>
@@ -248,8 +246,8 @@ export default function Experience() {
                   </div>
 
                   <div className="mt-6 text-center">
-                    <button className="text-purple-400 hover:text-purple-300 font-medium transition-colors flex items-center justify-center w-full">
-                      {selectedExp === exp.id ? 'Show Less' : 'View Details'}
+                    <button className="text-green-400 hover:text-green-300 font-medium transition-colors flex items-center justify-center w-full mono-text text-sm">
+                      {selectedExp === exp.id ? '[-] collapse' : '[+] expand'}
                     </button>
                   </div>
                 </div>
@@ -259,26 +257,27 @@ export default function Experience() {
         </div>
 
         <div className="mt-20 text-center">
-          <div className="glass-effect rounded-3xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-4 design-heading">
-              Ready to Lead Your Next Design Initiative?
+          <div className="terminal-glass rounded-lg p-8 md:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 design-heading">
+              <span className="mono-text text-green-400">$ </span>Ready for Production Deployment?
             </h3>
-            <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              With <strong className="text-gradient">20+ years of proven design leadership</strong> and
-              <strong className="text-gradient"> transformative results</strong>, I&apos;m ready to drive your design strategy forward.
+            <p className="text-white/70 text-base md:text-lg mb-8 max-w-2xl mx-auto mono-text">
+              <span className="ai-text-gradient">3+ years experience</span> •
+              <span className="ai-text-gradient"> AWS certified path</span> •
+              <span className="ai-text-gradient"> MSc Computer Science</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:phalguna.avalagunta252@outlook.com"
-                className="button-premium text-white px-8 py-4 rounded-2xl text-lg font-semibold"
+                className="ai-button text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-base font-semibold mono-text"
               >
-                Start a Conversation
+                $ contact --immediate
               </a>
               <a
                 href="#contact"
-                className="glass-effect border-2 border-white/20 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/10 transition-all duration-300"
+                className="terminal-border text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-base font-semibold hover:bg-white/10 transition-all duration-300 mono-text"
               >
-                View Full Portfolio
+                $ view --portfolio
               </a>
             </div>
           </div>
