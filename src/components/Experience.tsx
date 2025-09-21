@@ -5,111 +5,111 @@ import { useState } from 'react';
 const experiences = [
   {
     id: 1,
-    title: 'Senior Principal Designer',
-    company: 'Fortune 500 Financial Services',
-    duration: '2020 - Present • 4+ years',
-    location: 'Global Remote',
-    type: 'Senior Leadership',
+    title: 'Data Analyst',
+    company: 'Morae',
+    duration: 'Jul 2022 - Sep 2024 • 2 yrs 2 mos',
+    location: 'Bengaluru, Karnataka, India',
+    type: 'Professional Experience',
     achievements: [
-      'Led design system strategy across 50+ product teams serving 15 countries',
-      'Reduced design-to-development time by 60% through standardization',
-      'Established design operations framework reducing design debt by 70%',
-      'Mentored 20+ designers across multiple product squads',
-      'Achieved 98% designer adoption rate for new design system'
+      'Analyzed complex datasets to identify patterns and insights using Python and SQL',
+      'Automated repetitive processes reducing manual work by 30% through scripting',
+      'Built Excel dashboards and data visualization tools for performance tracking',
+      'Managed databases with 10,000+ records ensuring data integrity',
+      'Collaborated in Agile environment with daily standups and sprint planning'
     ],
-    technologies: ['Figma', 'Design Systems', 'Storybook', 'Design Tokens', 'Zeroheight', 'User Research'],
-    impact: '$2M annual cost savings',
-    category: 'Design Leadership'
+    technologies: ['Python', 'SQL', 'Excel', 'Data Analysis', 'APIs', 'Automation'],
+    impact: '30% efficiency improvement',
+    category: 'Data Analysis'
   },
   {
     id: 2,
-    title: 'Head of UX Design',
-    company: 'Series B Fintech Startup',
-    duration: '2017 - 2020 • 3 years',
-    location: 'San Francisco, CA',
-    type: 'Design Leadership',
+    title: 'Operations Analyst',
+    company: 'Sagility (formerly Hinduja Global Solutions)',
+    duration: 'Jul 2021 - Jul 2022 • 1 yr',
+    location: 'Bengaluru, Karnataka, India',
+    type: 'Professional Experience',
     achievements: [
-      'Built design team from ground up, scaling to 12 designers',
-      'Led product design for AI-powered investment platform',
-      'Grew user base from 50K to 300K+ active users through UX optimization',
-      'Established design culture and scalable design processes',
-      'Achieved 4.8/5 App Store rating through user-centered design'
+      'Processed high-volume data with 99% accuracy using automated tools',
+      'Developed process improvements adopted team-wide increasing efficiency by 25%',
+      'Worked with APIs and data integration tools for seamless data flow',
+      'Created documentation and training materials for new team members',
+      'Collaborated with cross-functional teams to resolve complex issues'
     ],
-    technologies: ['Figma', 'Principle', 'InVision', 'Hotjar', 'Mixpanel', 'User Testing'],
-    impact: '500% user growth',
-    category: 'Product Design'
+    technologies: ['Data Processing', 'APIs', 'Automation', 'Documentation', 'Training'],
+    impact: '25% team efficiency boost',
+    category: 'Operations'
   },
   {
     id: 3,
-    title: 'Lead Product Designer',
-    company: 'Healthcare Technology',
-    duration: '2014 - 2017 • 3 years',
-    location: 'Boston, MA',
-    type: 'Senior Design',
+    title: 'E-Commerce Platform on AWS',
+    company: 'University Project',
+    duration: 'Current Academic Project',
+    location: 'University of East London',
+    type: 'Academic Project',
     achievements: [
-      'Redesigned provider portal serving 10,000+ healthcare professionals',
-      'Reduced task completion time by 35% through workflow optimization',
-      'Led user research initiatives including 50+ user interviews',
-      'Achieved HIPAA compliance while improving user experience',
-      'Decreased support tickets by 50% through intuitive design'
+      'Deployed full-stack application using EC2, RDS, S3 with auto-scaling',
+      'Integrated load balancing to handle 1000+ concurrent users',
+      'Achieved 99.9% uptime through proper AWS architecture',
+      'Integrated Stripe API for secure payment processing',
+      'Implemented CI/CD pipeline for automated deployment'
     ],
-    technologies: ['Sketch', 'Axure', 'UserZoom', 'Optimal Workshop', 'Usability Testing'],
-    impact: '35% efficiency improvement',
-    category: 'UX Strategy'
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'AWS', 'Stripe'],
+    impact: '1000+ concurrent users',
+    category: 'Cloud Development'
   },
   {
     id: 4,
-    title: 'Senior UX Designer',
-    company: 'Global E-commerce Platform',
-    duration: '2012 - 2014 • 2 years',
-    location: 'Seattle, WA',
-    type: 'Senior Design',
+    title: 'ML Model for Prediction Analysis',
+    company: 'University Project',
+    duration: 'Current Academic Project',
+    location: 'University of East London',
+    type: 'Academic Project',
     achievements: [
-      'Led UX transformation of B2B marketplace serving 100K+ merchants',
-      'Improved seller onboarding completion rate by 45%',
-      'Increased GMV by 30% through conversion optimization',
-      'Reduced cart abandonment by 20% through checkout redesign',
-      'Supported expansion into 15 new international markets'
+      'Building cloud-based ML model using AWS SageMaker',
+      'Achieved 85% accuracy in stock price prediction using LSTM',
+      'Deployed model as REST API for real-time predictions',
+      'Processing 10,000+ predictions daily with sub-second latency',
+      'Implemented data pipeline for continuous model training'
     ],
-    technologies: ['Adobe XD', 'Maze', 'Amplitude', 'Optimizely', 'A/B Testing'],
-    impact: '30% GMV increase',
-    category: 'Product Strategy'
+    technologies: ['Python', 'TensorFlow', 'AWS SageMaker', 'Flask', 'APIs'],
+    impact: '85% prediction accuracy',
+    category: 'Machine Learning'
   },
   {
     id: 5,
-    title: 'UX Designer',
-    company: 'Municipal Government Tech',
-    duration: '2010 - 2012 • 2 years',
-    location: 'Austin, TX',
-    type: 'Government Design',
+    title: 'Serverless Analytics Dashboard',
+    company: 'University Project',
+    duration: 'Current Academic Project',
+    location: 'University of East London',
+    type: 'Academic Project',
     achievements: [
-      'Designed smart city IoT dashboard for municipal officials',
-      'Created accessible interfaces meeting WCAG 2.1 AA standards',
-      'Improved incident response time by 50% through data visualization',
-      'Won Government Innovation Design Award for civic impact',
-      'Enhanced resource allocation efficiency by 25%'
+      'Developing serverless application using AWS Lambda and API Gateway',
+      'Real-time data processing with WebSocket implementation',
+      'Processing 1M+ events daily with DynamoDB integration',
+      'Interactive dashboard with Chart.js visualizations',
+      'Cost-effective serverless architecture design'
     ],
-    technologies: ['D3.js', 'Tableau', 'Figma', 'React', 'Accessibility Testing'],
-    impact: '50% faster response',
-    category: 'Data Visualization'
+    technologies: ['Python', 'JavaScript', 'AWS Lambda', 'DynamoDB', 'Chart.js'],
+    impact: '1M+ daily events',
+    category: 'Cloud Development'
   },
   {
     id: 6,
-    title: 'Product Designer',
-    company: 'Enterprise Software Company',
-    duration: '2008 - 2010 • 2 years',
-    location: 'Austin, TX',
-    type: 'Early Career',
+    title: 'Computer Vision Quality Control',
+    company: 'Personal Project',
+    duration: 'Self-Directed Learning',
+    location: 'London, UK',
+    type: 'Personal Project',
     achievements: [
-      'Led UX transformation of SaaS platform used by 1M+ professionals',
-      'Increased daily active users by 40% through redesign',
-      'Reduced onboarding time by 60% with streamlined flows',
-      'Improved feature adoption by 35% through better information architecture',
-      'Decreased churn rate by 20% with enhanced user experience'
+      'Built real-time quality control system using computer vision',
+      'Achieved 92% accuracy in defect detection with CNN',
+      'Deployed as containerized microservice on AWS ECS',
+      'Optimized for edge computing with IoT sensor integration',
+      'Created statistical analysis dashboard for quality metrics'
     ],
-    technologies: ['Sketch', 'InVision', 'Framer', 'Jira', 'Confluence'],
-    impact: '40% user growth',
-    category: 'Enterprise UX'
+    technologies: ['Python', 'OpenCV', 'PyTorch', 'Docker', 'AWS ECS'],
+    impact: '92% defect detection accuracy',
+    category: 'AI/Computer Vision'
   }
 ];
 
@@ -117,7 +117,7 @@ export default function Experience() {
   const [filter, setFilter] = useState('All');
   const [selectedExp, setSelectedExp] = useState<number | null>(null);
 
-  const categories = ['All', 'Design Leadership', 'Senior Design', 'Product Strategy', 'Government Design', 'Early Career'];
+  const categories = ['All', 'Professional Experience', 'Academic Project', 'Personal Project'];
   const filteredExperiences = filter === 'All'
     ? experiences
     : experiences.filter(exp => exp.type === filter);
@@ -130,13 +130,13 @@ export default function Experience() {
             <span className="text-purple-300 font-semibold">Career Journey</span>
           </div>
           <h2 className="heading-lg text-white mb-6">
-            20+ Years of
+            Professional
             <br />
-            <span className="text-gradient">Design Excellence</span>
+            <span className="text-gradient">Experience & Projects</span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            From startup environments to Fortune 500 enterprises, leading transformative design initiatives
-            that drive business growth and create exceptional user experiences.
+            Real-world experience in data analysis and cutting-edge academic projects in AI, cloud computing,
+            and machine learning. Ready to deliver immediate impact.
           </p>
         </div>
 

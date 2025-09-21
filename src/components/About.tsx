@@ -7,9 +7,9 @@ export default function About() {
             <span className="text-purple-300 font-semibold">About Me</span>
           </div>
           <h2 className="heading-lg text-white mb-6">
-            Two Decades of
+            About
             <br />
-            <span className="text-gradient">Design Leadership</span>
+            <span className="text-gradient">Phalguna Avalagunta</span>
           </h2>
         </div>
 
@@ -20,20 +20,17 @@ export default function About() {
             <div className="glass-effect rounded-3xl p-8 interactive-card">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-full premium-gradient flex items-center justify-center">
-                  <span className="text-white text-xl">🎯</span>
+                  <span className="text-white text-xl">🚀</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white design-heading">Design Philosophy</h3>
+                <h3 className="text-2xl font-bold text-white design-heading">Professional Summary</h3>
               </div>
               <p className="text-white/80 text-lg leading-relaxed mb-6">
-                I believe great design is invisible—it solves problems so elegantly that users accomplish their goals
-                without friction. My approach combines <span className="text-gradient font-semibold">human-centered design principles</span> with
-                <span className="text-gradient font-semibold"> data-driven insights</span> to create experiences that not only delight users
-                but drive measurable business outcomes.
+                <span className="text-gradient font-semibold">Innovative Cloud & AI Developer</span> with hands-on experience building production-ready applications using AWS, Python, and Machine Learning.
+                Currently completing MSc Computer Science at University of East London with <span className="text-gradient font-semibold">immediate availability</span> for full-time roles.
               </p>
               <p className="text-white/80 text-lg leading-relaxed">
-                Over 20+ years, I&apos;ve learned that the best designs emerge from deep collaboration, rigorous user research,
-                and iterative refinement. I&apos;m passionate about building <span className="text-gradient font-semibold">design systems that scale</span> and
-                mentoring the next generation of design leaders.
+                Ready to contribute from day one with practical experience in <span className="text-gradient font-semibold">AWS Lambda, EC2, S3, and SageMaker</span>.
+                Passionate about solving technical challenges with modern tech stack including Python, JavaScript, React, Node.js, Docker, and Kubernetes.
               </p>
             </div>
 
@@ -41,39 +38,39 @@ export default function About() {
             <div className="glass-effect rounded-3xl p-8 interactive-card">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 rounded-full premium-gradient flex items-center justify-center">
-                  <span className="text-white text-xl">🚀</span>
+                  <span className="text-white text-xl">💼</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white design-heading">Career Highlights</h3>
+                <h3 className="text-2xl font-bold text-white design-heading">Recent Achievements</h3>
               </div>
 
               <div className="space-y-8">
                 <div className="border-l-4 border-purple-400 pl-6">
-                  <h4 className="text-xl font-bold text-white mb-2">Senior Principal Designer</h4>
-                  <p className="text-purple-300 font-semibold mb-1">Fortune 500 Financial Services</p>
-                  <p className="text-white/60 mb-3">2020 - Present</p>
+                  <h4 className="text-xl font-bold text-white mb-2">Data Analyst</h4>
+                  <p className="text-purple-300 font-semibold mb-1">Morae</p>
+                  <p className="text-white/60 mb-3">Jul 2022 - Sep 2024 • 2 yrs 2 mos</p>
                   <p className="text-white/80">
-                    Leading design system strategy across 50+ product teams. Established design operations framework
-                    that reduced design debt by 70% and improved cross-platform consistency.
+                    Analyzed complex datasets using Python and SQL. Automated processes reducing manual work by 30%.
+                    Built dashboards and managed databases with 10,000+ records ensuring data integrity.
                   </p>
                 </div>
 
                 <div className="border-l-4 border-blue-400 pl-6">
-                  <h4 className="text-xl font-bold text-white mb-2">Head of UX Design</h4>
-                  <p className="text-blue-300 font-semibold mb-1">Series B Fintech Startup</p>
-                  <p className="text-white/60 mb-3">2017 - 2020</p>
+                  <h4 className="text-xl font-bold text-white mb-2">Operations Analyst</h4>
+                  <p className="text-blue-300 font-semibold mb-1">Sagility (formerly Hinduja Global Solutions)</p>
+                  <p className="text-white/60 mb-3">Jul 2021 - Jul 2022 • 1 yr</p>
                   <p className="text-white/80">
-                    Built design team from ground up. Led product design for AI-powered investment platform
-                    that grew from 50K to 300K+ active users. Established design culture and processes.
+                    Processed high-volume data with 99% accuracy. Developed process improvements increasing efficiency by 25%.
+                    Created documentation and collaborated with cross-functional teams on complex issues.
                   </p>
                 </div>
 
                 <div className="border-l-4 border-green-400 pl-6">
-                  <h4 className="text-xl font-bold text-white mb-2">Lead Product Designer</h4>
-                  <p className="text-green-300 font-semibold mb-1">Healthcare Technology</p>
-                  <p className="text-white/60 mb-3">2014 - 2017</p>
+                  <h4 className="text-xl font-bold text-white mb-2">MSc Computer Science</h4>
+                  <p className="text-green-300 font-semibold mb-1">University of East London</p>
+                  <p className="text-white/60 mb-3">Sep 2024 - Jan 2026 (Expected)</p>
                   <p className="text-white/80">
-                    Redesigned provider portal serving 10,000+ healthcare professionals. Reduced task completion
-                    time by 35% through user-centered design and workflow optimization.
+                    Advanced studies in AWS Cloud Computing, AI, Machine Learning, and Big Data Analytics.
+                    Building real-world projects including serverless applications and ML prediction models.
                   </p>
                 </div>
               </div>
@@ -117,8 +114,8 @@ export default function About() {
             {/* Recognition */}
             <div className="glass-effect rounded-3xl p-6">
               <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                <span className="text-2xl mr-3">🎖️</span>
-                Recognition
+                <span className="text-2xl mr-3">🎓</span>
+                Certifications
               </h3>
               <div className="space-y-4">
                 <div className="border-l-4 border-yellow-400 pl-4">

@@ -3,42 +3,42 @@
 import { useState } from 'react';
 
 const skillCategories = {
-  'Design Leadership': [
-    { name: 'Design Strategy', level: 98 },
-    { name: 'Team Leadership', level: 96 },
-    { name: 'Design Operations', level: 94 },
-    { name: 'Stakeholder Management', level: 92 },
-    { name: 'Mentoring & Coaching', level: 95 },
-    { name: 'Design Culture Building', level: 90 }
+  'AI & Machine Learning': [
+    { name: 'Python', level: 90 },
+    { name: 'TensorFlow', level: 85 },
+    { name: 'PyTorch', level: 80 },
+    { name: 'Machine Learning', level: 85 },
+    { name: 'Deep Learning', level: 80 },
+    { name: 'Computer Vision', level: 75 }
   ],
-  'Design Systems': [
-    { name: 'Component Libraries', level: 95 },
-    { name: 'Design Tokens', level: 92 },
-    { name: 'Figma', level: 98 },
-    { name: 'Storybook', level: 88 },
-    { name: 'Documentation', level: 90 },
-    { name: 'Accessibility Standards', level: 85 }
+  'Cloud & DevOps': [
+    { name: 'AWS', level: 85 },
+    { name: 'Docker', level: 85 },
+    { name: 'Kubernetes', level: 75 },
+    { name: 'Terraform', level: 70 },
+    { name: 'CI/CD', level: 80 },
+    { name: 'Jenkins', level: 75 }
   ],
-  'UX Research & Strategy': [
-    { name: 'User Research', level: 92 },
-    { name: 'Usability Testing', level: 90 },
-    { name: 'Journey Mapping', level: 88 },
-    { name: 'Information Architecture', level: 85 },
-    { name: 'Service Design', level: 80 },
-    { name: 'Design Thinking', level: 94 }
+  'Programming & Development': [
+    { name: 'Python', level: 90 },
+    { name: 'JavaScript', level: 85 },
+    { name: 'React', level: 80 },
+    { name: 'Node.js', level: 75 },
+    { name: 'SQL', level: 85 },
+    { name: 'Git', level: 80 }
   ],
-  'Product & Interaction Design': [
-    { name: 'Product Strategy', level: 90 },
-    { name: 'Interaction Design', level: 92 },
-    { name: 'Prototyping', level: 88 },
-    { name: 'Visual Design', level: 85 },
-    { name: 'Mobile Design', level: 87 },
-    { name: 'Responsive Design', level: 90 }
+  'Data & Analytics': [
+    { name: 'Data Analysis', level: 85 },
+    { name: 'Data Visualization', level: 80 },
+    { name: 'SQL', level: 85 },
+    { name: 'Excel', level: 80 },
+    { name: 'PostgreSQL', level: 75 },
+    { name: 'MongoDB', level: 70 }
   ]
 };
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState('Design Leadership');
+  const [activeCategory, setActiveCategory] = useState('AI & Machine Learning');
 
   return (
     <section id="skills" className="py-32 px-6 relative">
@@ -48,13 +48,13 @@ export default function Skills() {
             <span className="text-purple-300 font-semibold">Core Competencies</span>
           </div>
           <h2 className="heading-lg text-white mb-6">
-            Mastery Across
+            Technical
             <br />
-            <span className="text-gradient">Design Disciplines</span>
+            <span className="text-gradient">Skills & Expertise</span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            Two decades of hands-on experience spanning design leadership, systems thinking,
-            user research, and strategic product design.
+            Hands-on experience with modern technologies including cloud computing, machine learning,
+            and full-stack development. Ready to contribute immediately.
           </p>
         </div>
 
@@ -96,10 +96,10 @@ export default function Skills() {
 
         <div className="mt-20 grid md:grid-cols-4 gap-8">
           {[
-            { number: '20+', label: 'Years of Expertise', description: 'Leading design teams' },
-            { number: '50+', label: 'Design Systems', description: 'Created and scaled' },
-            { number: '500+', label: 'Projects Delivered', description: 'Across industries' },
-            { number: '200+', label: 'Designers Mentored', description: 'Career development' }
+            { number: '3+', label: 'Years Experience', description: 'Professional development' },
+            { number: '25+', label: 'Technologies', description: 'Mastered and applied' },
+            { number: '6+', label: 'Major Projects', description: 'Delivered successfully' },
+            { number: '99%', label: 'Data Accuracy', description: 'Consistent quality' }
           ].map((stat, index) => (
             <div key={index} className="glass-effect rounded-2xl p-6 text-center interactive-card">
               <div className="text-3xl font-bold text-gradient mb-2">{stat.number}</div>
