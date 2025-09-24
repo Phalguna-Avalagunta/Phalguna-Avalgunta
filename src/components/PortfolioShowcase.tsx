@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const portfolioProjects = [
   {
@@ -242,9 +243,15 @@ export default function PortfolioShowcase() {
                 </div>
                 <div className="relative">
                   <div className="aspect-video terminal-glass rounded-lg overflow-hidden ai-glow">
-                    <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-blue-600/20 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-4xl md:text-5xl mb-4">☁️</div>
+                    <Image
+                      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                      alt="AWS Cloud Infrastructure Dashboard"
+                      width={1200}
+                      height={675}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-600/40 to-blue-600/40 flex items-center justify-center">
+                      <div className="text-center bg-black/60 px-4 py-2 rounded-lg">
                         <span className="text-white text-lg md:text-xl font-bold mono-text">AWS Cloud Project</span>
                       </div>
                     </div>
@@ -265,9 +272,50 @@ export default function PortfolioShowcase() {
             >
               {/* Project Preview */}
               <div className="aspect-video relative overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-purple-600/20 to-cyan-600/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">
+                {project.category === 'Cloud Development' ? (
+                  <Image
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Cloud Infrastructure"
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover"
+                  />
+                ) : project.category === 'Machine Learning' ? (
+                  <Image
+                    src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Machine Learning Analytics"
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover"
+                  />
+                ) : project.category === 'AI/Computer Vision' ? (
+                  <Image
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Computer Vision Interface"
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover"
+                  />
+                ) : project.category === 'Data Analysis' ? (
+                  <Image
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Data Analytics Dashboard"
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <Image
+                    src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Operations Dashboard"
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 to-cyan-600/40 flex items-center justify-center">
+                  <div className="text-center bg-black/60 px-3 py-2 rounded-lg">
+                    <div className="text-2xl mb-1">
                       {project.category === 'Cloud Development' ? '☁️' :
                        project.category === 'Machine Learning' ? '🤖' :
                        project.category === 'AI/Computer Vision' ? '👁️' :

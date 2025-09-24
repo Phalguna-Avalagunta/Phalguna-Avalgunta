@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Hero() {
   const [text, setText] = useState('');
@@ -317,8 +318,22 @@ export default function Hero() {
                 </div>
 
                 {/* Terminal Content */}
-                <div className="p-3 md:p-4 h-64 md:h-80 lg:h-96 overflow-hidden">
-                  <div className="space-y-1 md:space-y-2 mono-text text-xs md:text-sm">
+                <div className="p-3 md:p-4 h-64 md:h-80 lg:h-96 overflow-hidden relative">
+                  {/* IDE Background with Profile Image for whoami section */}
+                  {terminalLines.some(line => line === '$ whoami' || line === 'phalguna.avalgunta') && (
+                    <div className="absolute inset-0 opacity-10 pointer-events-none">
+                      <Image
+                        src="/images/profile/Pha.A.png"
+                        alt="Phalguna Avalgunta Profile"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-green-900/20 to-black/80"></div>
+                    </div>
+                  )}
+
+                  <div className="space-y-1 md:space-y-2 mono-text text-xs md:text-sm relative z-10">
                     {terminalLines.filter(line => line !== undefined).map((line, index) => (
                       <div
                         key={index}
@@ -328,7 +343,9 @@ export default function Hero() {
                             : line?.includes(':')
                             ? 'text-orange-400'
                             : 'text-white/80'
-                        } animate-fadeIn break-all`}
+                        } animate-fadeIn break-all ${
+                          line === 'phalguna.avalgunta' ? 'text-white font-bold bg-green-400/20 px-2 py-1 rounded' : ''
+                        }`}
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         {line}
