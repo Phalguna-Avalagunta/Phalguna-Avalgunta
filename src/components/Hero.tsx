@@ -12,6 +12,9 @@ export default function Hero() {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showProfileOverlay, setShowProfileOverlay] = useState(false);
+  const [profileAsBackground, setProfileAsBackground] = useState(false);
+  const [isTerminalComplete, setIsTerminalComplete] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -75,7 +78,12 @@ export default function Hero() {
       '$ aws sts get-caller-identity',
       'UserId: Cloud-Native-Developer',
       '$ echo $SKILLS',
-      'Python,TensorFlow,AWS,Docker,React'
+      'Python,TensorFlow,AWS,Docker,React',
+      '$ curl -X GET https://api.profile.dev/user/phalguna',
+      'Fetching profile data...',
+      'Status: 200 OK',
+      'Content-Type: image/png',
+      '$ display --fullscreen /tmp/profile.png'
     ];
 
     let currentIndex = 0;
@@ -84,7 +92,20 @@ export default function Hero() {
         const command = terminalCommands[currentIndex];
         setTerminalLines(prev => [...prev, command]);
         currentIndex++;
+
+        // Trigger profile overlay on the fetch display command
+        if (command === '$ display --fullscreen /tmp/profile.png') {
+          setTimeout(() => {
+            setShowProfileOverlay(true);
+            // After 3 seconds, transition to background
+            setTimeout(() => {
+              setShowProfileOverlay(false);
+              setProfileAsBackground(true);
+            }, 3000);
+          }, 1000);
+        }
       } else {
+        setIsTerminalComplete(true);
         clearInterval(terminalTimer);
       }
     }, 800);
@@ -319,9 +340,9 @@ export default function Hero() {
 
                 {/* Terminal Content */}
                 <div className="p-3 md:p-4 h-64 md:h-80 lg:h-96 overflow-hidden relative">
-                  {/* IDE Background with Profile Image for whoami section */}
-                  {terminalLines.some(line => line === '$ whoami' || line === 'phalguna.avalgunta') && (
-                    <div className="absolute inset-0 opacity-10 pointer-events-none">
+                  {/* Profile Image as Background (after animation) */}
+                  {profileAsBackground && (
+                    <div className="absolute inset-0 opacity-15 pointer-events-none">
                       <Image
                         src="/images/profile/Pha.A.png"
                         alt="Phalguna Avalgunta Profile"
@@ -340,21 +361,27 @@ export default function Hero() {
                         className={`${
                           line?.startsWith('$')
                             ? 'text-green-400'
-                            : line?.includes(':')
+                            : line?.includes(':') || line?.includes('Status:') || line?.includes('Content-Type:')
                             ? 'text-orange-400'
+                            : line?.includes('Fetching')
+                            ? 'text-yellow-400'
                             : 'text-white/80'
                         } animate-fadeIn break-all ${
                           line === 'phalguna.avalgunta' ? 'text-white font-bold bg-green-400/20 px-2 py-1 rounded' : ''
+                        } ${
+                          line?.includes('200 OK') ? 'text-green-400 font-bold' : ''
                         }`}
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         {line}
                       </div>
                     ))}
-                    <div className="flex items-center">
-                      <span className="text-green-400">$ </span>
-                      <span className="border-r-2 border-green-400 animate-pulse ml-1"></span>
-                    </div>
+                    {!isTerminalComplete && (
+                      <div className="flex items-center">
+                        <span className="text-green-400">$ </span>
+                        <span className="border-r-2 border-green-400 animate-pulse ml-1"></span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -387,6 +414,62 @@ export default function Hero() {
           <div className="mono-text text-xs text-green-400">scroll_down()</div>
         </div>
       </div>
+
+      {/* Fullscreen Profile Overlay */}
+      {showProfileOverlay && (
+        <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center animate-fadeIn">
+          <div className="relative w-full h-full flex items-center justify-center">
+            {/* Loading effect */}
+            <div className="absolute top-8 left-8 terminal-glass px-4 py-2 rounded-lg">
+              <div className="mono-text text-green-400 text-sm animate-pulse">
+                Loading profile image...
+              </div>
+            </div>
+
+            {/* Profile Image */}
+            <div className="relative max-w-2xl max-h-2xl w-full h-full flex items-center justify-center p-8">
+              <div className="relative w-full h-full max-w-lg max-h-lg animate-fadeIn">
+                <Image
+                  src="/images/profile/Pha.A.png"
+                  alt="Phalguna Avalgunta"
+                  width={800}
+                  height={800}
+                  className="w-full h-full object-contain rounded-lg terminal-glass"
+                  priority
+                  style={{
+                    animation: 'profileZoom 1s ease-out, profileGlow 2s ease-in-out infinite 1s'
+                  }}
+                />
+                {/* Animated border effect */}
+                <div className="absolute -inset-2 border-2 border-green-400 rounded-lg animate-pulse"></div>
+                <div className="absolute -inset-4 border border-green-400/30 rounded-lg animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              </div>
+            </div>
+
+            {/* Terminal info overlay */}
+            <div className="absolute bottom-8 left-8 right-8 text-center" style={{ animation: 'slideInFromBottom 0.8s ease-out 0.5s both' }}>
+              <div className="terminal-glass px-6 py-4 rounded-lg max-w-md mx-auto">
+                <div className="mono-text text-green-400 text-lg font-bold mb-2">
+                  Profile Loaded Successfully
+                </div>
+                <div className="mono-text text-white/80 text-sm">
+                  Phalguna Avalgunta • AI/ML Engineer
+                </div>
+                <div className="mono-text text-orange-400 text-xs mt-2 animate-pulse">
+                  Transitioning to background in 3s...
+                </div>
+              </div>
+            </div>
+
+            {/* Close indicator */}
+            <div className="absolute top-8 right-8 terminal-glass px-4 py-2 rounded-lg">
+              <div className="mono-text text-white/60 text-xs">
+                ESC to close
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
