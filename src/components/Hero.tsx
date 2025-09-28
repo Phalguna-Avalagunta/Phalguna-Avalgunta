@@ -130,7 +130,7 @@ export default function Hero() {
           style={{
             right: `${15 + mousePosition.x * 0.012}%`,
             bottom: `${20 + mousePosition.y * 0.012}%`,
-            animationDelay: '2s'
+            animationDelay: "2s",
           }}
         ></div>
         <div
@@ -138,7 +138,7 @@ export default function Hero() {
           style={{
             left: `${60 + mousePosition.x * 0.008}%`,
             top: `${60 + mousePosition.y * 0.008}%`,
-            animationDelay: '4s'
+            animationDelay: "4s",
           }}
         ></div>
 
@@ -150,10 +150,10 @@ export default function Hero() {
               className="absolute h-px bg-gradient-to-r from-transparent via-green-400 to-transparent"
               style={{
                 top: `${20 + i * 15}%`,
-                left: '0',
-                right: '0',
+                left: "0",
+                right: "0",
                 animationDelay: `${i * 0.5}s`,
-                animation: 'dataFlow 8s ease-in-out infinite'
+                animation: "dataFlow 8s ease-in-out infinite",
               }}
             />
           ))}
@@ -176,11 +176,13 @@ export default function Hero() {
           <div className="hidden md:flex items-center space-x-1">
             {mounted && currentTime && (
               <div className="terminal-glass px-3 py-2 rounded-lg text-xs mono-text">
-                <span className="text-green-400">{currentTime.toLocaleTimeString()}</span>
+                <span className="text-green-400">
+                  {currentTime.toLocaleTimeString()}
+                </span>
               </div>
             )}
             <div className="flex space-x-6 ml-6">
-              {['work', 'about', 'skills', 'contact'].map((item) => (
+              {["work", "about", "skills", "contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item}`}
@@ -199,7 +201,7 @@ export default function Hero() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="terminal-glass p-2 rounded-lg mono-text text-sm text-green-400"
             >
-              {mobileMenuOpen ? '✕' : '☰'}
+              {mobileMenuOpen ? "✕" : "☰"}
             </button>
           </div>
         </div>
@@ -208,7 +210,7 @@ export default function Hero() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 terminal-glass rounded-lg p-4 animate-fadeIn">
             <div className="flex flex-col space-y-3">
-              {['work', 'about', 'skills', 'contact'].map((item) => (
+              {["work", "about", "skills", "contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item}`}
@@ -226,7 +228,6 @@ export default function Hero() {
       {/* Main Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
           {/* Left Column - Terminal Interface */}
           <div className="space-y-6 md:space-y-8 animate-slideUp">
             {/* System Status */}
@@ -234,7 +235,9 @@ export default function Hero() {
               <div className="flex items-center justify-between mb-3 md:mb-4">
                 <div className="flex items-center space-x-2 md:space-x-3">
                   <div className="w-2 h-2 md:w-3 md:h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 mono-text text-xs md:text-sm">SYSTEM_STATUS: ONLINE</span>
+                  <span className="text-green-400 mono-text text-xs md:text-sm">
+                    SYSTEM_STATUS: ONLINE
+                  </span>
                 </div>
                 <div className="flex space-x-1 md:space-x-2">
                   <div className="w-2 h-2 md:w-3 md:h-3 bg-red-400 rounded-full"></div>
@@ -261,11 +264,17 @@ export default function Hero() {
                 <div className="mono-text text-orange-400 text-sm md:text-base lg:text-lg">
                   {`{`}
                   <br />
-                  &nbsp;&nbsp;&quot;role&quot;: &quot;<span className="ai-text-gradient font-semibold">AI/ML Engineer</span>&quot;,
+                  &nbsp;&nbsp;&quot;role&quot;: &quot;
+                  <span className="ai-text-gradient font-semibold">
+                    AI/ML Engineer
+                  </span>
+                  &quot;,
                   <br />
-                  &nbsp;&nbsp;&quot;specialization&quot;: &quot;Cloud &amp; Data Science&quot;,
+                  &nbsp;&nbsp;&quot;specialization&quot;: &quot;Cloud &amp; Data
+                  Science&quot;,
                   <br />
-                  &nbsp;&nbsp;&quot;status&quot;: &quot;Ready for Production&quot;
+                  &nbsp;&nbsp;&quot;status&quot;: &quot;Ready for
+                  Production&quot;
                   <br />
                   {`}`}
                 </div>
@@ -286,15 +295,21 @@ export default function Hero() {
             {/* Real-time Metrics */}
             <div className="grid grid-cols-3 gap-2 md:gap-4">
               <div className="terminal-glass p-3 md:p-4 rounded-lg text-center neural-card">
-                <div className="text-lg md:text-2xl font-bold ai-text-gradient mono-text">3+</div>
+                <div className="text-lg md:text-2xl font-bold ai-text-gradient mono-text">
+                  3+
+                </div>
                 <div className="text-white/60 text-xs mono-text">YRS_EXP</div>
               </div>
               <div className="terminal-glass p-3 md:p-4 rounded-lg text-center neural-card">
-                <div className="text-lg md:text-2xl font-bold ai-text-gradient mono-text">92%</div>
+                <div className="text-lg md:text-2xl font-bold ai-text-gradient mono-text">
+                  92%
+                </div>
                 <div className="text-white/60 text-xs mono-text">ML_ACC</div>
               </div>
               <div className="terminal-glass p-3 md:p-4 rounded-lg text-center neural-card">
-                <div className="text-lg md:text-2xl font-bold ai-text-gradient mono-text">AWS</div>
+                <div className="text-lg md:text-2xl font-bold ai-text-gradient mono-text">
+                  AWS
+                </div>
                 <div className="text-white/60 text-xs mono-text">CLOUD</div>
               </div>
             </div>
@@ -355,27 +370,35 @@ export default function Hero() {
                   )}
 
                   <div className="space-y-1 md:space-y-2 mono-text text-xs md:text-sm relative z-10">
-                    {terminalLines.filter(line => line !== undefined).map((line, index) => (
-                      <div
-                        key={index}
-                        className={`${
-                          line?.startsWith('$')
-                            ? 'text-green-400'
-                            : line?.includes(':') || line?.includes('Status:') || line?.includes('Content-Type:')
-                            ? 'text-orange-400'
-                            : line?.includes('Fetching')
-                            ? 'text-yellow-400'
-                            : 'text-white/80'
-                        } animate-fadeIn break-all ${
-                          line === 'phalguna.avalgunta' ? 'text-white font-bold bg-green-400/20 px-2 py-1 rounded' : ''
-                        } ${
-                          line?.includes('200 OK') ? 'text-green-400 font-bold' : ''
-                        }`}
-                        style={{ animationDelay: `${index * 0.1}s` }}
-                      >
-                        {line}
-                      </div>
-                    ))}
+                    {terminalLines
+                      .filter((line) => line !== undefined)
+                      .map((line, index) => (
+                        <div
+                          key={index}
+                          className={`${
+                            line?.startsWith("$")
+                              ? "text-green-400"
+                              : line?.includes(":") ||
+                                line?.includes("Status:") ||
+                                line?.includes("Content-Type:")
+                              ? "text-orange-400"
+                              : line?.includes("Fetching")
+                              ? "text-yellow-400"
+                              : "text-white/80"
+                          } animate-fadeIn break-all ${
+                            line === "phalguna.avalgunta"
+                              ? "text-white font-bold bg-green-400/20 px-2 py-1 rounded"
+                              : ""
+                          } ${
+                            line?.includes("200 OK")
+                              ? "text-green-400 font-bold"
+                              : ""
+                          }`}
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          {line}
+                        </div>
+                      ))}
                     {!isTerminalComplete && (
                       <div className="flex items-center">
                         <span className="text-green-400">$ </span>
@@ -388,21 +411,39 @@ export default function Hero() {
 
               {/* Floating Tech Badges - Hidden on small screens */}
               <div className="hidden md:block absolute -top-4 -left-4 lg:-top-6 lg:-left-6 terminal-glass px-2 py-1 lg:px-3 lg:py-2 rounded-lg animate-float">
-                <span className="text-green-400 mono-text text-xs">Python 3.11</span>
+                <span className="text-green-400 mono-text text-xs">
+                  Python 3.11
+                </span>
               </div>
-              <div className="hidden md:block absolute top-6 lg:top-8 -right-6 lg:-right-8 terminal-glass px-2 py-1 lg:px-3 lg:py-2 rounded-lg animate-float" style={{ animationDelay: '1s' }}>
-                <span className="text-orange-400 mono-text text-xs">AWS CLI</span>
+              <div
+                className="hidden md:block absolute -top-96 lg:top-8 -right-6 lg:-right-8 terminal-glass px-2 py-1 lg:px-3 lg:py-2 rounded-lg animate-float"
+                style={{ animationDelay: "1s" }}
+              >
+                <span className="text-orange-400 mono-text text-xs">
+                  AWS CLI
+                </span>
               </div>
-              <div className="hidden md:block absolute -bottom-4 lg:-bottom-6 right-3 lg:right-4 terminal-glass px-2 py-1 lg:px-3 lg:py-2 rounded-lg animate-float" style={{ animationDelay: '2s' }}>
-                <span className="text-purple-400 mono-text text-xs">Docker</span>
+              <div
+                className="hidden md:block absolute -bottom-4 lg:-bottom-6 right-3 lg:right-4 terminal-glass px-2 py-1 lg:px-3 lg:py-2 rounded-lg animate-float"
+                style={{ animationDelay: "2s" }}
+              >
+                <span className="text-purple-400 mono-text text-xs">
+                  Docker
+                </span>
               </div>
-              <div className="hidden md:block absolute bottom-12 lg:bottom-16 -left-6 lg:-left-8 terminal-glass px-2 py-1 lg:px-3 lg:py-2 rounded-lg animate-float" style={{ animationDelay: '3s' }}>
+              <div
+                className="hidden md:block absolute bottom-12 lg:bottom-16 -left-6 lg:-left-8 terminal-glass px-2 py-1 lg:px-3 lg:py-2 rounded-lg animate-float"
+                style={{ animationDelay: "3s" }}
+              >
                 <span className="text-blue-400 mono-text text-xs">React</span>
               </div>
 
               {/* Data Visualization - Responsive */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[130%] h-[120%] md:h-[130%] border border-green-400/10 rounded-lg animate-pulse-slow pointer-events-none"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140%] md:w-[150%] h-[140%] md:h-[150%] border border-orange-400/5 rounded-lg animate-pulse-slow pointer-events-none" style={{ animationDelay: '2s' }}></div>
+              <div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140%] md:w-[150%] h-[140%] md:h-[150%] border border-orange-400/5 rounded-lg animate-pulse-slow pointer-events-none"
+                style={{ animationDelay: "2s" }}
+              ></div>
             </div>
           </div>
         </div>
@@ -417,7 +458,7 @@ export default function Hero() {
 
       {/* Fullscreen Profile Overlay */}
       {showProfileOverlay && (
-        <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center animate-fadeIn">
+        <div className="fixed left-0 right-0 top-1/4 bottom-0 md:inset-0 z-[9999] bg-black flex items-center justify-center animate-fadeIn">
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Loading effect */}
             <div className="absolute top-8 left-8 terminal-glass px-4 py-2 rounded-lg">
@@ -427,7 +468,7 @@ export default function Hero() {
             </div>
 
             {/* Profile Image */}
-            <div className="relative max-w-2xl max-h-2xl w-full h-full flex items-center justify-center p-8">
+            <div className="relative max-w-fit max-h-fit w-full h-fit flex items-center justify-center p-8">
               <div className="relative w-full h-full max-w-lg max-h-lg animate-fadeIn">
                 <Image
                   src="/images/profile/Pha.A.png"
@@ -437,17 +478,24 @@ export default function Hero() {
                   className="w-full h-full object-contain rounded-lg terminal-glass"
                   priority
                   style={{
-                    animation: 'profileZoom 1s ease-out, profileGlow 2s ease-in-out infinite 1s'
+                    animation:
+                      "profileZoom 1s ease-out, profileGlow 2s ease-in-out infinite 1s",
                   }}
                 />
                 {/* Animated border effect */}
                 <div className="absolute -inset-2 border-2 border-green-400 rounded-lg animate-pulse"></div>
-                <div className="absolute -inset-4 border border-green-400/30 rounded-lg animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <div
+                  className="absolute -inset-4 border border-green-400/30 rounded-lg animate-pulse"
+                  style={{ animationDelay: "0.5s" }}
+                ></div>
               </div>
             </div>
 
             {/* Terminal info overlay */}
-            <div className="absolute bottom-8 left-8 right-8 text-center" style={{ animation: 'slideInFromBottom 0.8s ease-out 0.5s both' }}>
+            <div
+              className="absolute bottom-8 left-8 right-8 text-center"
+              style={{ animation: "slideInFromBottom 0.8s ease-out 0.5s both" }}
+            >
               <div className="terminal-glass px-6 py-4 rounded-lg max-w-md mx-auto">
                 <div className="mono-text text-green-400 text-lg font-bold mb-2">
                   Profile Loaded Successfully
