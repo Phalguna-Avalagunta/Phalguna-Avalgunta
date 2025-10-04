@@ -140,7 +140,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **Phalguna Avalgunta**
-- **Email**: [phalguna.avalagunta252@outlook.com](mailto:phalguna.avalagunta252@outlook.com)
+- **Email**: [phalguna.avalagunta252@gmail.com](mailto:phalguna.avalagunta252@gmail.com)
 - **LinkedIn**: [Connect with me](https://linkedin.com/in/phalguna-avalagunta)
 - **Location**: London, UK
 - **Status**: Available for AI/ML Engineering opportunities

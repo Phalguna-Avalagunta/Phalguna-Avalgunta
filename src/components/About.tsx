@@ -173,7 +173,7 @@ export default function About() {
                 Ready for immediate deployment to your engineering team.
               </p>
               <a
-                href="mailto:phalguna.avalagunta252@outlook.com"
+                href="mailto:phalguna.avalagunta252@gmail.com"
                 className="ai-button text-white px-6 py-3 rounded-lg mono-text text-sm w-full block text-center"
               >
                 $ send_message --to=&quot;phalguna&quot;

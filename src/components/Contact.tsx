@@ -25,7 +25,7 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const mailtoLink = `mailto:phalguna.avalagunta252@outlook.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:phalguna.avalagunta252@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
         `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
       )}`;
 
@@ -60,13 +60,13 @@ export default function Contact() {
         {/* Quick Contact Actions */}
         <div className="grid md:grid-cols-3 gap-6 mb-20">
           <a
-            href="mailto:phalguna.avalagunta252@outlook.com"
+            href="mailto:phalguna.avalagunta252@gmail.com"
             className="terminal-glass p-6 md:p-8 rounded-lg text-center neural-card group"
           >
             <div className="text-4xl md:text-5xl mb-4 group-hover:scale-110 transition-transform">📧</div>
             <h3 className="text-lg md:text-xl font-bold text-white mb-2 design-heading mono-text">email.send()</h3>
             <p className="ai-text-gradient font-medium mb-4 mono-text text-sm">Direct Connection</p>
-            <p className="text-white/70 text-xs mono-text break-all">phalguna.avalagunta252@outlook.com</p>
+            <p className="text-white/70 text-xs mono-text break-all">phalguna.avalagunta252@gmail.com</p>
             <div className="mt-4 ai-button text-white px-4 py-2 rounded-lg font-semibold mono-text text-xs">
               $ mail --compose
             </div>
@@ -268,7 +268,7 @@ export default function Contact() {
               </button>
 
               <p className="text-white/60 text-xs text-center mono-text">
-                Direct email: <a href="mailto:phalguna.avalagunta252@outlook.com" className="ai-text-gradient hover:underline">phalguna.avalagunta252@outlook.com</a>
+                Direct email: <a href="mailto:phalguna.avalagunta252@gmail.com" className="ai-text-gradient hover:underline">phalguna.avalagunta252@gmail.com</a>
               </p>
             </form>
           </div>
@@ -288,7 +288,7 @@ export default function Contact() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:phalguna.avalagunta252@outlook.com?subject=Job Opportunity&body=Hi Phalguna, I'd like to discuss an opportunity with you."
+                href="mailto:phalguna.avalagunta252@gmail.com?subject=Job Opportunity&body=Hi Phalguna, I'd like to discuss an opportunity with you."
                 className="ai-button text-white px-8 md:px-12 py-3 md:py-5 rounded-lg text-sm md:text-lg font-bold mono-text"
               >
                 $ contact --immediate

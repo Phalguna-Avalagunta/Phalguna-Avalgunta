@@ -323,7 +323,7 @@ export default function Hero() {
                 $ ./view_projects.sh
               </a>
               <a
-                href="mailto:phalguna.avalagunta252@outlook.com"
+                href="mailto:phalguna.avalagunta252@gmail.com"
                 className="terminal-border text-white px-6 md:px-8 py-3 md:py-4 rounded-lg mono-text font-semibold text-center text-sm md:text-base"
               >
                 $ mail --opportunity

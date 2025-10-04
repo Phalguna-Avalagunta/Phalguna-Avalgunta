@@ -400,7 +400,7 @@ export default function PortfolioShowcase() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:phalguna.avalagunta252@outlook.com"
+                href="mailto:phalguna.avalagunta252@gmail.com"
                 className="ai-button text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-lg font-semibold mono-text"
               >
                 $ start --project
