@@ -141,7 +141,29 @@ export default function Contact() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="terminal-glass p-3 rounded-lg">
-                    <span className="text-green-400 text-xl">🌍</span>
+                    <span className="text-green-400 text-xl">📧</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mono-text">email:</h4>
+                    <p className="ai-text-gradient mono-text text-sm">phalguna.avalagunta252@gmail.com</p>
+                    <p className="text-white/60 text-xs mono-text">u2811669@uel.ac.uk</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="terminal-glass p-3 rounded-lg">
+                    <span className="text-orange-400 text-xl">📱</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mono-text">phone:</h4>
+                    <p className="ai-text-gradient mono-text text-sm">+44 07741820922</p>
+                    <p className="text-white/60 text-xs mono-text">Available for calls</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="terminal-glass p-3 rounded-lg">
+                    <span className="text-purple-400 text-xl">🌍</span>
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mono-text">location:</h4>
